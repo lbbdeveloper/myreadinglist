@@ -20,7 +20,9 @@ import('./config/passport.js')
 
 // require routes
 import { router as indexRouter } from './routes/index.js'
-
+import { router as authRouter } from './routes/auth.js'
+import { router as profileRouter } from './routes/profiles.js'
+import { router as bookRouter } from './routes/books.js'
 
 
 // view engine setup
@@ -57,6 +59,9 @@ app.use(
 
 // router middleware
 app.use('/', indexRouter)
+app.use('/auth', authRouter)
+app.use('/myreadinglist', profileRouter)
+app.use('/book', bookRouter)
 
 
 
