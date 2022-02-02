@@ -10,6 +10,7 @@ export {
   index,
   show,
   deleteBook as delete,
+  edit,
 
 
 
@@ -57,5 +58,15 @@ export {
   function deleteBook(req,res){
     Book.findByIdAndDelete(req.params.id, function(err, book) {
       res.redirect('/book')
+    })
+  }
+
+  function edit(req,res){
+    Book.findById(req.params.id, function(err, book) {
+      res.render('book/edit', {
+        book,
+        err,
+        title: "Edit Book"
+      })
     })
   }

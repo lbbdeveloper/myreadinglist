@@ -5,6 +5,35 @@
 <%- include('../partials/nav') %>
 
 
+<main>
+  <div class="container-lg py-3">
+
+    <h6>Book Show Page</h6>
+    <div class="card shadow p-3 mx-auto bg-body rounded" style="width: 22rem;">
+      <% if (user) { %>
+      <div class="row">
+        <div class="col-9">
+            <a href="/book" class=" btn btn-outline-warning" id='btn-back'><span><<</span>  </a>
+        </div>
+        <div class="col">
+          <a class="btn btn-outline-warning" href="/book/<%= book._id %>/edit"><span>Edit</span></a>
+        </div>
+      </div>
+      <% } %>
+
+      <img src="<%= book.img %> " class="card-img-top" alt="Placeholder Img">
+      <div class="card-body">
+        <h5 class="card-title text-center"><%= book.name  %> </h5>
+        <p class="mb-0 text-center">Author:</p>
+        <p class="mb-1 text-center"><%= book.author %></p>
+        <p class="mb-0 text-center custom-text"> Description:</p>
+        <p class="mb-3 text-center custom-text"><%= book.description %></p>
+      </div>
+
+
+  </div>
+  </div>
+</main>
 
 
 <%- include('../partials/footer') %>

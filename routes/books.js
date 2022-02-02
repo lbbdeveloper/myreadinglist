@@ -14,6 +14,7 @@ router.post('/', bookCtrl.create)
 router.get('/:id', bookCtrl.show);
 
 router.delete('/:id',bookCtrl.delete)
+router.get("/:id/edit",bookCtrl.edit)
 
 
 
