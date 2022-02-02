@@ -8,6 +8,7 @@ export {
 
 const router = Router()
 router.get('/', bookCtrl.index)
+router.get('/new', bookCtrl.new)
 
 
 

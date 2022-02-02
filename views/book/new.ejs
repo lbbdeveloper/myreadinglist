@@ -1,0 +1,48 @@
+<%- include('../partials/html-head') %>
+
+</head>
+<body class="homePage">
+<%- include('../partials/nav') %>
+
+
+<main>
+  <div class="container-lg py-3">
+      <div class="card shadow p-3 mx-auto bg-body rounded" style="width: 26rem;">
+        <h5 class="mx-auto">New Book Data</h5>
+            <form action="/book" method="POST">
+            <img src="/images/book/sketches/placeholder.png" class="card-img-top" alt="Placeholder Img">
+            <div class="form-floating my-3">
+                <input type="String" class="form-control" id="floatingInput" name="name" placeholder="name">
+                <label for="floatingInput">Name</label>
+              </div>
+              <div class="form-floating my-3">
+                <input type="String" class="form-control" id="floatingInput" name="img" placeholder="img url here">
+                <label for="floatingInput">Img url</label>
+              </div>
+              <label class="mx-1 my-1">Author</label>
+              <div class="form-floating mb-3">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Author" aria-label="Author" name="author">
+                    
+                  </div>
+              </div>
+
+              <label class="mx-1 my-1">Description</label>
+              <div class="form-floating mb-3">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Description" aria-label="Description" name="description">
+ 
+                  </div>
+              </div>
+
+                <button class="my-4 btn btn-outline-warning" type="submit"><span>Add Book</span></button>
+            </div>
+            </form>
+          </div>
+    
+    
+  </div>
+</main>
+
+
+<%- include('../partials/footer') %>

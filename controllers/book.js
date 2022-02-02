@@ -3,6 +3,9 @@ import { Profile } from '../models/profile.js'
 
 export {
 
+    
+    
+  newBook as new,
     index,
 
 }
@@ -16,4 +19,13 @@ export {
       })
     })
   }
+
+  function newBook(req, res) {
+    res.render('book/new', {
+      title: "Add Book"
+    })
+  }
+
+ 
+  
   
