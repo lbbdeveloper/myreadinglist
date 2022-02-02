@@ -13,6 +13,7 @@ router.get('/new', bookCtrl.new)
 router.post('/', bookCtrl.create)
 router.get('/:id', bookCtrl.show);
 
+router.delete('/:id',bookCtrl.delete)
 
 
 

@@ -14,7 +14,35 @@
         <% } %>
       </div>
       
-      
+      <div 
+      class="row row-cols-1 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 g5 g-sm-3 g-xxl-5 px-sm-5 px-4 py-3">
+      <% book.forEach((book) => { %>
+        <div class="col">
+          <div class="card shadow p-3 mx-auto bg-body rounded" style="width: 17rem;">
+            <div class="row">
+              <div class="col-8">
+                <% if (user) { %>
+                 <form action="/book/<%= book._id %>?_method=DELETE" method="POST">
+                    <button class="btn btn-outline-warning"><span>X</span></button>
+                  </form>
+                  <% } %>
+              </div>
+              <div class="col">
+            <a class="btn btn-outline-warning" href="/book/<%= book._id %>"><span> ••• </span></a>
+          </div>
+        </div>
+                <img src="<%= book.img %>" class="card-img-top" alt="Placeholder Img">
+                <div class="card-body">
+                  <h5 class="card-title text-center"><%= book.name  %> </h5>
+                  <p class="mb-0 text-center">Author</p>
+                  <p class="mb-1 text-center"><%= book.author%></p>
+                  <p class="mb-0 text-center custom-text">Description</p>
+                  <p class="mb-3 text-center custom-text"><%= book.description %></p>
+                  </div>
+        </div>
+      </div>
+      <% }) %> 
+    </div>
     
          
     

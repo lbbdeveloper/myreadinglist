@@ -9,6 +9,8 @@ export {
   create,
   index,
   show,
+  deleteBook as delete,
+
 
 
 }
@@ -50,5 +52,10 @@ export {
         title: 'Book Detail', 
         book: book,
       })
+    })
+  }
+  function deleteBook(req,res){
+    Book.findByIdAndDelete(req.params.id, function(err, book) {
+      res.redirect('/book')
     })
   }
