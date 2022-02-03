@@ -11,6 +11,8 @@ export {
   show,
   deleteBook as delete,
   edit,
+  update,
+
 
 
 
@@ -68,5 +70,14 @@ export {
         err,
         title: "Edit Book"
       })
+    })
+  }
+
+  function update(req,res){
+    for (let key in req.body) {
+      if (req.body[key] === '') delete req.body[key]
+    }
+    Book.findByIdAndUpdate(req.params.id, req.body, {new:true}, function(err, book) {
+      res.redirect(`/book/${book._id}`)
     })
   }
