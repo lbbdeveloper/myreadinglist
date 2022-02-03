@@ -12,10 +12,30 @@ export {
   deleteBook as delete,
   edit,
   update,
+  addToList,
 
 
 
 
+
+}
+
+function addToList(req, res) {
+  Profile.findById(req.user.profile._id)
+  .then(profile=>{
+    if (!profile.books.includes(req.params.id)){
+      profile.books.push({_id:req.params.id})
+    }
+    profile.save()
+    .then(()=> {
+      console.log(profile.books)
+      res.redirect(`/myreadinglist/${profile._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
+  })
 }
 
 

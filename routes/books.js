@@ -17,6 +17,8 @@ router.delete('/:id',bookCtrl.delete)
 router.get("/:id/edit",bookCtrl.edit)
 router.put("/:id",bookCtrl.update)
 
+router.get('/:id/addtolist', isLoggedIn, bookCtrl.addToList)
+
 
 
 function isLoggedIn(req, res, next) {
