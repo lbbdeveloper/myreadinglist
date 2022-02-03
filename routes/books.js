@@ -18,6 +18,7 @@ router.get("/:id/edit",bookCtrl.edit)
 router.put("/:id",bookCtrl.update)
 
 router.get('/:id/addtolist', isLoggedIn, bookCtrl.addToList)
+router.delete('/:id/addtolist', isLoggedIn, bookCtrl.removeFromList)
 
 
 

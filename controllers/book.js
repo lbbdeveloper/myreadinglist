@@ -13,11 +13,23 @@ export {
   edit,
   update,
   addToList,
+  removeFromList,
 
+}
 
-
-
-
+function removeFromList(req, res) {
+  Profile.findById(req.user.profile._id)
+  .then(profile=>{
+    profile.books.pull({_id:req.params.id})
+    profile.save()
+    .then(()=> {
+      res.redirect(`/myreadinglist/${profile._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
+  })
 }
 
 function addToList(req, res) {
