@@ -3,18 +3,15 @@ import { Profile } from '../models/profile.js'
 
 export {
 
-    
-    
-  newBook as new,
-  create,
-  index,
-  show,
-  deleteBook as delete,
-  edit,
-  update,
-  addToList,
-  removeFromList,
-
+    newBook as new,
+    create,
+    index,
+    show,
+    deleteBook as delete,
+    edit,
+    update,
+    addToList,
+    removeFromList,
 }
 
 function removeFromList(req, res) {
@@ -51,22 +48,14 @@ function addToList(req, res) {
 }
 
 
-  function index(req, res) {
-    Book.find({}, function(err, book) {
-      res.render('book/index', {
-        book: book,
-        title: 'All Book'
-      })
-    })
-  }
-
-  function newBook(req, res) {
+function newBook(req, res) {
     res.render('book/new', {
       title: "Add Book"
     })
   }
-
-  function create(req, res) {
+  
+  
+function create(req, res) {
     for (let key in req.body) {
       if (req.body[key] === '') delete req.body[key]
     }
@@ -80,6 +69,15 @@ function addToList(req, res) {
     })
   }
   
+  function index(req, res) {
+    Book.find({}, function(err, book) {
+      res.render('book/index', {
+        book: book,
+        title: 'All Book'
+      })
+    })
+  }
+  
   function show(req, res) {
     Book.findById(req.params.id)
     .then(book=>{
@@ -89,6 +87,7 @@ function addToList(req, res) {
       })
     })
   }
+  
   function deleteBook(req,res){
     Book.findByIdAndDelete(req.params.id, function(err, book) {
       res.redirect('/book')
@@ -104,7 +103,7 @@ function addToList(req, res) {
       })
     })
   }
-
+  
   function update(req,res){
     for (let key in req.body) {
       if (req.body[key] === '') delete req.body[key]
