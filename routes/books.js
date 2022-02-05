@@ -21,7 +21,6 @@ router.get('/:id/addtolist', isLoggedIn, bookCtrl.addToList)
 router.delete('/:id/addtolist', isLoggedIn, bookCtrl.removeFromList)
 
 
-
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
   res.redirect("/auth/google");
